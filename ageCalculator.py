@@ -4,24 +4,21 @@
 
 import datetime
 
-def calculate_age(birth_year):
-    today = datetime.date.today()
-    age = today.year - birth_year
+YearOfBirth = int(input("Enter the year of birth: "))
+CurrentYear = datetime.datetime.now().year
+ageInYears = CurrentYear - YearOfBirth
 
-    if today.month < (birth_year + age) % 12 + 1:
-        age -= 1
+if ageInYears < 0:
+    print("Invalid year of birth. Please enter a valid year.")
+else:
+    # Calculate age in months
+    ageinMonths = ageInYears * 12
 
-    months = today.month - ((birth_year + age) % 12 + 1)
-    if months < 0:
-        months += 12
-
-    days = today.day - datetime.date(today.year - age, today.month - months, 1).day
-    if days < 0:
-        days += datetime.date(today.year - age, today.month - months, 1).day
-
-    return age, months, days
-
-birth_year = int(input("Enter your year of birth: "))
-age, months, days = calculate_age(birth_year)
-
-print(f"Your age is {age} years, {months} months, and {days} days.")
+    # Calculate age in days
+    daysinaMonth = 30.44 # Approximation assumes a 30.44-day month
+    daysinYear = 365.24 # Approximation assumes a 365.24-day year
+    ageInDays = ageInYears * daysinYear + ageinMonths * daysinaMonth
+    
+    print(f"Age in years: {ageInYears}")
+    print(f"Age in months: {ageinMonths}")
+    print(f"Age in days: {int(ageInDays)}")
