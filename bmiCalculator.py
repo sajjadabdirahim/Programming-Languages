@@ -2,14 +2,14 @@
 
 # Assignment 2 Part B Control Flow - BMI Calculator
 
-# Get user inputs
+
 height = float(input("Enter your height in meters: "))
 weight = float(input("Enter your weight in kilograms: "))
 
-# Calculate BMI
+
 bmi = weight / (height * height)
 
-# Print BMI and classification
+
 print(f"Your BMI is {bmi:.2f}")
 
 if bmi < 18.5:
