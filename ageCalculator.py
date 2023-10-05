@@ -11,12 +11,11 @@ ageInYears = CurrentYear - YearOfBirth
 if ageInYears < 0:
     print("Invalid year of birth. Please enter a valid year.")
 else:
-    # Calculate age in months
+    
     ageinMonths = ageInYears * 12
 
-    # Calculate age in days
-    daysinaMonth = 30.44 # Approximation assumes a 30.44-day month
-    daysinYear = 365.24 # Approximation assumes a 365.24-day year
+    daysinaMonth = 30.44 
+    daysinYear = 365.24 
     ageInDays = ageInYears * daysinYear + ageinMonths * daysinaMonth
     
     print(f"Age in years: {ageInYears}")
